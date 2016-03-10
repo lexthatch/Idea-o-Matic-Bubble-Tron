@@ -9,40 +9,45 @@
 </head>
 
 <body ng-controller="appController">
-    <section id="body-container">
-        <div class="panel panel-primary">
-            <div class="col-md-12">
-                <form ng-submit="" class="form">
-                    <div class="form-group">
-                        <label for=""></label>
-                        <input type="text" ng-model="" class="form-control" placeholder="Five Words for an Idea">
-                    </div>
-                    <button ng click="submit()" style="font-size:54px">BLOW</button>
-                </form>
-            </div>
+
+    <div class="container">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <form ng-submit="newThought()" class="form">
+                <div class="form-group form-inline text-center">
+                    Characers Remaning: {{newThoughtLength-newIdea.idea.length}} <input type="text" ng-model="newIdea.idea" class="form-control" placeholder="Five Words for an Idea"><br>
+                    <input type="text" class="event" ng-model="newIdea.event" class="form-control" placeholder="Event or Location">
+                    <input type="submit" value="BLOW"></input>
+                </div>
+            </form>
         </div>
-        <div class="panel panel-secondary">
-            <div class="col-md-12">
-                <div class="panel-body">
-                    <form>
-                        <button ng-click="bumpUp()" style="font-size:34px">Inflate</button>
-                        <!--In case we add it later here's "pop"-->
-                        <!--<button ng-click="pop()" style="font-size:54px">POP</button>-->
-                        <button ng-click="bumpDown()" style="font-size:34px">Deflate</button>
-                    </form>
+    </div>
+
+    <div class="container-fluid">
+        <div ng-repeat="bub in bubbles | orderBy:'-count'">
+            <div class="col-xs-6 col-sm-2 col-md-2">
+                <div class="bubble text-center">
+                    <button ng-click="pop(bub)">POP</button>
+                    <br>
+                    <button ng-click="bumpDown(bub)">Deflate</button>
+
+                    {{bub.idea}}
+                    <!--In case we add it later here's "pop"-->
+                    <button ng-click="bumpUp(bub)">Inflate</button>
+                    <br> Count: {{bub.count}}
+                    #-{{bub.event}}
                 </div>
             </div>
         </div>
+    </div>
 
 
 
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="app/components/app.js"></script>
-
-        <script src="app/components/controllers/controller.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="app/components/app.js"></script>
+    <script src="app/components/controllers/controller.js"></script>
 
 
 </body>
