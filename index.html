@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>IOMBT</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 
@@ -26,13 +27,12 @@
         <div ng-repeat="bub in bubbles | orderBy:'-count'">
             <div class="col-xs-6 col-sm-2 col-md-2">
                 <div class="bubble text-center">
-                    <button ng-click="pop(bub)">POP</button>
-                    <br>
-                    <button ng-click="bumpDown(bub)">Deflate</button>
+                    <button id="thought-bubblePop" ng-click="pop(bub)"><i class="fa fa-sun-o"></i></button>
+                    <button id="thought-bubbleDown" ng-click="bumpDown(bub)"><i class="fa fa-minus"></i></button>
+                    <button id="thought-bubbleUp" ng-click="bumpUp(bub)"><i class="fa fa-plus"></i></button><br>
 
                     {{bub.idea}}
                     <!--In case we add it later here's "pop"-->
-                    <button ng-click="bumpUp(bub)">Inflate</button>
                     <br> Count: {{bub.count}}
                     #-{{bub.event}}
                 </div>
