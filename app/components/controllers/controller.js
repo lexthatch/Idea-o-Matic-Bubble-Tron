@@ -1,5 +1,5 @@
 app.controller('appController', function ($scope) {
-    $scope.bubbles = [{idea: "Star Wars Epiosde 8 Ending", count: 0 }, { idea: "Star Wars Epiosde 7 Ending", count: 0 }, { idea: "Star Wars Epiosde 1 Ending", count: 0 }, { idea: "Star Wars Epiosde 2 Ending", count: 0 }, { idea: "Star Wars Epiosde 3 Ending", count: 0 }, { idea: "Star Wars Epiosde 4 Ending", count: 0 }, { idea: "Star Wars Epiosde 5 Ending", count: 0 }, { idea: "Star Wars Epiosde 6 Ending", count: 0 }, { idea: "Star Wars Epiosde 9 Ending", count: 0 }]
+    $scope.bubbles = [{ idea: "Star Wars Epiosde 8 Ending", count: 0 }, { idea: "Star Wars Epiosde 7 Ending", count: 0 }, { idea: "Star Wars Epiosde 1 Ending", count: 0 }, { idea: "Star Wars Epiosde 2 Ending", count: 0 }, { idea: "Star Wars Epiosde 3 Ending", count: 0 }, { idea: "Star Wars Epiosde 4 Ending", count: 0 }, { idea: "Star Wars Epiosde 5 Ending", count: 0 }, { idea: "Star Wars Epiosde 6 Ending", count: 0 }, { idea: "Star Wars Epiosde 9 Ending", count: 0 }]
 
     $scope.bumpUp = function (obj) {
         obj.count++
@@ -16,7 +16,7 @@ app.controller('appController', function ($scope) {
         $scope.bubbles.splice($scope.bubbles.indexOf(obj), 1)
         return;
     }
-    
+
     $scope.newThoughtLength = 25;
     $scope.newThought = function () {
         if (($scope.newIdea.idea === null) || ($scope.newIdea.idea == "")) {
@@ -27,6 +27,8 @@ app.controller('appController', function ($scope) {
             $scope.newIdea = "";
         }
         else {
+                $('#bubble').animateCss('bounce');
+            
             $scope.bubbles.push(
                 {
                     idea: $scope.newIdea.idea,
@@ -36,6 +38,14 @@ app.controller('appController', function ($scope) {
         }
     }
     
+    $.fn.extend({
+        animateCss: function (animationName) {
+            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            $(this).addClass('animated ' + animationName).one(animationEnd, function () {
+                $(this).removeClass('animated ' + animationName);
+            });
+        }
+    });
     $scope.update = function (property) {
         return function (a, b) {
             if (a[property] < b[property]) {
