@@ -1,24 +1,26 @@
-app.controller('appController', function ($scope) {
-    $scope.bubbles = [{ idea: "Star Wars Epiosde 8 Ending", count: 0 }, { idea: "Star Wars Epiosde 7 Ending", count: 0 }, { idea: "Star Wars Epiosde 1 Ending", count: 0 }, { idea: "Star Wars Epiosde 2 Ending", count: 0 }, { idea: "Star Wars Epiosde 3 Ending", count: 0 }, { idea: "Star Wars Epiosde 4 Ending", count: 0 }, { idea: "Star Wars Epiosde 5 Ending", count: 0 }, { idea: "Star Wars Epiosde 6 Ending", count: 0 }, { idea: "Star Wars Epiosde 9 Ending", count: 0 }]
+app.controller('appController', function($scope) {
+    $scope.bubbles = [{ idea: "b", count: 0 }]
 
-    $scope.bumpUp = function (obj) {
-        obj.count++
-        
-        // $scope.bubbles.sort($scope.update(""))
-        var temp = $scope.bubbles.indexOf(obj)
-        return console.log(temp);
+    // $scope.bubbles = [{ idea: "Star Wars Epiosde 8 Ending", count: 0 }, { idea: "Star Wars Epiosde 7 Ending", count: 0 }, { idea: "Star Wars Epiosde 1 Ending", count: 0 }, { idea: "Star Wars Epiosde 2 Ending", count: 0 }, { idea: "Star Wars Epiosde 3 Ending", count: 0 }, { idea: "Star Wars Epiosde 4 Ending", count: 0 }, { idea: "Star Wars Epiosde 5 Ending", count: 0 }, { idea: "Star Wars Epiosde 6 Ending", count: 0 }, { idea: "Star Wars Epiosde 9 Ending", count: 0 }]
+
+    $scope.bumpUp = function(obj) {
+        // var temp = document.getElementById('bubbles')
+        // var bubbleSize = temp.getBoundingClientRect();
+        return obj.count++
     }
-    $scope.bumpDown = function (obj) {
+    $scope.bumpDown = function(obj) {
+        // $('#bubble').animateCss('bounceInDown')
         obj.count--
         return;
     }
-    $scope.pop = function (obj) {
+    $scope.pop = function(obj) {
+        // $('#bubble').animateCss('bounceOut')
         $scope.bubbles.splice($scope.bubbles.indexOf(obj), 1)
         return;
     }
 
     $scope.newThoughtLength = 25;
-    $scope.newThought = function () {
+    $scope.newThought = function() {
         if (($scope.newIdea.idea === null) || ($scope.newIdea.idea == "")) {
             alert("Sorry, plese enter in a valid input")
         }
@@ -27,37 +29,26 @@ app.controller('appController', function ($scope) {
             $scope.newIdea = "";
         }
         else {
-                $('#bubble').animateCss('bounce');
-            
+
             $scope.bubbles.push(
                 {
                     idea: $scope.newIdea.idea,
                     event: $scope.newIdea.event,
                     count: 0
                 })
+            // $scope.newIdea = "";
+
+            // $('#bubbles').animateCss('bounce')
         }
     }
-    
+
+
     $.fn.extend({
-        animateCss: function (animationName) {
+        animateCss: function(animationName) {
             var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-            $(this).addClass('animated ' + animationName).one(animationEnd, function () {
+            $(this).addClass('animated ' + animationName).one(animationEnd, function() {
                 $(this).removeClass('animated ' + animationName);
             });
         }
     });
-    $scope.update = function (property) {
-        return function (a, b) {
-            if (a[property] < b[property]) {
-                return -1
-            }
-            else if (a[property] > b[property]) {
-                return 1
-            }
-            else {
-                return 0
-            }
-        }
-    }
-
 });

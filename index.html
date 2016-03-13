@@ -20,7 +20,7 @@
                         Characers Remaning: {{newThoughtLength-newIdea.idea.length}}
                         <input type="text" ng-model="newIdea.idea" class="form-control" placeholder="Five Words for an Idea">
                         <br>
-                        <input type="text" class="event" ng-model="newIdea.event" class="form-control" placeholder="Event or Location">
+                        <!--<input type="text" class="event" ng-model="newIdea.event" class="form-control" placeholder="Event or Location">-->
                         <input type="submit" value="Blow"></input>
                     </div>
                 </form>
@@ -30,14 +30,13 @@
 
     <div class="container-fluid">
         <div ng-repeat="bub in bubbles | orderBy:'-count'">
-            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                <div id="bubble">
+            <div class="animated bounce">
+                <div id="bubbles" class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="bubble text-center">
                         <button id="thought-bubblePop" ng-click="pop(bub)"><i class="fa fa-sun-o"></i></button>
                         <button id="thought-bubbleDown" ng-click="bumpDown(bub)"><i class="fa fa-minus"></i></button>
                         <button id="thought-bubbleUp" ng-click="bumpUp(bub)"><i class="fa fa-plus"></i></button>
                         <br> {{bub.idea}}
-                        <!--In case we add it later here's "pop"-->
                         <br> Count: {{bub.count}} #-{{bub.event}}
                     </div>
                 </div>
