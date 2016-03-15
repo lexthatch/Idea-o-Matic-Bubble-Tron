@@ -1,5 +1,7 @@
 <div class="container">
-  <h2>Common Wall</h2> Name:
+  <h2>Common Wall</h2> 
+  <h4>Turn Five Words into Many</h4>
+  Name:
   <br>
   <input type="text" ng-model="filter.name" /> {{filter.name}}
   <br>
@@ -10,14 +12,20 @@
     </li>
   </ul>
 
-  <br> Customer Name:
+  <br> Where:
   <br>
-  <input type="text" ng-model="newCustomer.name" />
-  <br> Customer City:
+  <input type="text" ng-model="newWhere.name" />
   <br>
-  <input type="text" ng-model="newCustomer.city" />
+  <button ng-click="addLocation()">Search Google Maps</button>
   <br>
-  <button ng-click="addCustomer()">Add Customer</button>
+  
+  
   <br>
-  <a href="#/view2">View 2</a>
+  <input type="text" ng-model="newWhere.city" />
+  <br>
+  <br>Seriously though... don't be a stranger. Who are you?
+  <br>
+  
+  <!-- Just in case we want a second view for some reason use this below -->
+  <!--<a href="#/view2">View 2</a>-->
 </div>
