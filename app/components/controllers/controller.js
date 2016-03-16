@@ -5,8 +5,8 @@ app.controller('appController', function($scope,$timeout) {
         for (var i = 0; i < 20; i++){
         $scope.bubbles.push(
             {
-            idea:   "Hello"+i,
-            event: "Somewhere Over The Rainbow",
+            idea:   "Hello World Friend"+i,
+            event: "Over The Rainbow",
             count: 0
             })
         }
@@ -17,8 +17,8 @@ app.controller('appController', function($scope,$timeout) {
         // var temp = document.getElementById('bubbles')
         // var bubbleSize = temp.getBoundingClientRect();
         // $scope.class = "bubble2"
-        $('#'+ index).animateCss('bounce')
         obj.count++
+        $('#'+ index).animateCss('bounce')
         if (obj.count >= 5){
             $timeout(function(){$scope.pop(obj)},5000)
         }
