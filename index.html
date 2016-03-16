@@ -30,20 +30,24 @@
 
     <div class="container-fluid">
         <div ng-repeat="bub in bubbles | orderBy:'-count'">
-            <div class="animated bounce">
-                <div id="bubbles" class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                    <div class="hex text-center">
-                        <button id="thought-bubblePop" ng-click="pop(bub)"><i class="fa fa-sun-o"></i></button>
-                        <button id="thought-bubbleDown" ng-click="bumpDown(bub)"><i class="fa fa-minus"></i></button>
-                        <button id="thought-bubbleUp" ng-click="bumpUp(bub)"><i class="fa fa-plus"></i></button>
-                        <br> {{bub.idea}}
-                        <br> Count: {{bub.count}} #-{{bub.event}}
-                    </div>
+            <div class="text-center col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                <div id="{{$index}}" ng-class="{bubble1: bub.count <= 2, bubble2: bub.count === 3, bubble3: bub.count > 3}">
+                    <button id="thought-bubblePop" ng-click="pop(bub, $index)"><i class="fa fa-sun-o"></i></button>
+                    <button id="thought-bubbleDown" ng-click="bumpDown(bub, $index)"><i class="fa fa-minus"></i></button>
+                    <button id="thought-bubbleUp" ng-click="bumpUp(bub, $index)"><i class="fa fa-plus"></i></button>
+                    <br>#{{$index}}
+                    <br> {{bub.idea}}
+                    <br> Count: {{bub.count}} #-{{bub.event}}
                 </div>
             </div>
         </div>
     </div>
 
+    <!--Examples of some ways of doing stuff-->
+    <!--<div ng-repeat="bub in bubbles track by $index" ng-class="{'animated bounce':$last}">
+            <!--<div class="animated bounce">-->
+    <!--<div class="text-center col-xs-6 col-sm-4 col-md-3 col-lg-2">-->
+    <!--<div id="{{$index}}" ng-class="class">-->
 
 
 
