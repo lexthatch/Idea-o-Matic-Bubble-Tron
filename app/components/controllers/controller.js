@@ -1,5 +1,5 @@
 app.controller('appController', function($scope,$timeout) {
-    $scope.bubbles = [{ idea: "b", count: 1 }]
+    $scope.bubbles = [{ idea: "b", count: 4 }]
 
     $scope.generateBubbles = function(){
         for (var i = 0; i < 20; i++){
@@ -19,6 +19,9 @@ app.controller('appController', function($scope,$timeout) {
         // $scope.class = "bubble2"
         $('#'+ index).animateCss('bounce')
         obj.count++
+        if (obj.count >= 5){
+            $timeout(function(){$scope.pop(obj)},5000)
+        }
         return ;
     }
     $scope.bumpDown = function(obj, index) {
