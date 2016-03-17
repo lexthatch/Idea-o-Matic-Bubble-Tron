@@ -1,5 +1,5 @@
 app.controller('appController', function($scope,$timeout) {
-    $scope.bubbles = [{ idea: "b", count: 4 }]
+    $scope.bubbles = [{ idea: "b", count: 4, event: "Rainbow Land" }]
 
     $scope.generateBubbles = function(){
         for (var i = 0; i < 20; i++){
@@ -7,7 +7,7 @@ app.controller('appController', function($scope,$timeout) {
             {
             idea:   "Hello World Friend"+i,
             event: "Over The Rainbow",
-            count: 0
+            count: 4
             })
         }
     }();
@@ -52,7 +52,7 @@ app.controller('appController', function($scope,$timeout) {
                     // event: $scope.newIdea.event,
                     count: 0
                 })
-                $timeout(function(){$('#' + $scope.newIdea.idea).animateCss('bounce')},100)
+                
         }
     }
 
