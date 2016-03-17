@@ -1,0 +1,40 @@
+<div class="container">
+    <h2>Common Wall</h2>
+    <h3>Turn Five Words into Many</h3> Where:
+    <br>
+    <input type="text" ng-model="newWhere.city" />
+    <br>
+    <br>
+    <button ng-click="addLocation()">Search Google Maps</button>
+    <br>
+    <h4>Seriously though... don't be a stranger. Who are you?</h4> Name:
+    <br>
+    <input type="text" ng-model="filter.name" /> {{filter.name}}
+    <br>
+    <br>
+    <button ng-click="addFacebook()">FB</button>
+    <button ng-click="addGooglePlus()">G+</button>
+    <button ng-click="addTwitter()">Twtr</button>
+    <button ng-click="addLinkedIn()">Li</button>
+    <br>
+    <h4>None of the Above?</h4>
+    <select>
+        <option value="fake choice">fake choice</option>
+        <option value="fake choice">fake choice</option>
+        <option value="fake choice">fake choice</option>
+        <option value="fake choice">fake choice</option>
+        <option value="fake choice">fake choice</option>
+        <option value="fake choice">fake choice</option>
+        <option value="fake choice">fake choice</option>
+        <option value="fake choice">fake choice</option>
+        <option value="fake choice">fake choice</option>
+        <option value="fake choice">fake choice</option>
+        <option value="fake choice">fake choice</option>
+        <option value="fake choice">fake choice</option>
+    </select>
+    <br>
+    <br>
+    <button ng-click="addTimer()">Start: This bubble will self destruct in 1:00</button>
+    <!-- Just in case we want a second view for some reason use this below -->
+    <!--<a href="#/view2">View 2</a>-->
+</div>
