@@ -6,40 +6,50 @@
     <title>IOMBT</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/styles/animate.css">
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 
 <body ng-controller="appController">
 
     <div class="container">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <form ng-submit="newThought()" class="form">
-                <div class="form-group form-inline text-center">
-                    Characers Remaning: {{newThoughtLength-newIdea.idea.length}} <input type="text" ng-model="newIdea.idea" class="form-control" placeholder="Five Words for an Idea"><br>
-                    <input type="text" class="event" ng-model="newIdea.event" class="form-control" placeholder="Event or Location">
-                    <input type="submit" value="BLOW"></input>
-                </div>
-            </form>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <form ng-submit="newThought()" class="form">
+                    <div class="form-group form-inline text-center">
+                        Characers Remaning: {{newThoughtLength-newIdea.idea.length}}
+                        <input type="text" ng-model="newIdea.idea" class="form-control" placeholder="Five Words for an Idea">
+                        <br>
+                        <!--<input type="text" class="event" ng-model="newIdea.event" class="form-control" placeholder="Event or Location">-->
+                        <input type="submit" value="Blow"></input>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
     <div class="container-fluid">
         <div ng-repeat="bub in bubbles | orderBy:'-count'">
-            <div class="col-xs-6 col-sm-2 col-md-2">
-                <div class="bubble text-center">
-                    <button id="thought-bubblePop" ng-click="pop(bub)"><i class="fa fa-sun-o"></i></button>
-                    <button id="thought-bubbleDown" ng-click="bumpDown(bub)"><i class="fa fa-minus"></i></button>
-                    <button id="thought-bubbleUp" ng-click="bumpUp(bub)"><i class="fa fa-plus"></i></button><br>
-
-                    {{bub.idea}}
-                    <!--In case we add it later here's "pop"-->
-                    <br> Count: {{bub.count}}
-                    #-{{bub.event}}
+            <div class="text-center col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                <div id="{{$index}}" ng-class="{bubble1: bub.count <= 2, bubble2: bub.count === 3, bubble3: bub.count === 4, hex: bub.count >= 5}">
+                    <span ng-if="bub.count <=4">
+                    <button id="thought-bubblePop" ng-click="pop(bub, $index)" ><i class="fa fa-sun-o"></i></button>
+                    <button id="thought-bubbleDown" ng-click="bumpDown(bub, $index)"><i class="fa fa-minus"></i></button>
+                    <button id="thought-bubbleUp" ng-click="bumpUp(bub, $index)"><i class="fa fa-plus"></i></button>
+                    </span>
+                     <!--#{{$index}}-->
+                    <br> {{bub.idea}}
+                    <br> {{bub.count}} #{{bub.event}}
                 </div>
             </div>
         </div>
     </div>
 
+    <!--Examples of some ways of doing stuff-->
+    <!--<div ng-repeat="bub in bubbles track by $index" ng-class="{'animated bounce':$last}">
+            <!--<div class="animated bounce">-->
+    <!--<div class="text-center col-xs-6 col-sm-4 col-md-3 col-lg-2">-->
+    <!--<div id="{{$index}}" ng-class="class">-->
 
 
 
