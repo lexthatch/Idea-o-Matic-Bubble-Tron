@@ -58,7 +58,7 @@ app.controller('appController', function($scope,$timeout) {
                     // event: $scope.newIdea.event,
                     count: 0
                 })
-                $timeout(function(){$('#' + $scope.newIdea.idea).animateCss('bounce')},100)
+                
         }
     }
 
