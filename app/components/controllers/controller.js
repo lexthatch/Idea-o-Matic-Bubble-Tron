@@ -1,13 +1,14 @@
 app.controller('appController', function($scope,$timeout) {
-    $scope.bubbles = [{ idea: "b", count: 4 }]
+    $scope.bubbles = []
 
     $scope.generateBubbles = function(){
-        for (var i = 0; i < 20; i++){
+        for (var i = 0; i < 10; i++){
         $scope.bubbles.push(
             {
-            idea:   "Hello World Friend"+i,
-            event: "Over The Rainbow",
-            count: 0
+            idea: chance.name({middle: true, prefix: true}),
+            event: chance.domain(),
+            // count: 2
+            count: chance.integer({min: 0, max: 4})
             })
         }
     }();
@@ -17,21 +18,26 @@ app.controller('appController', function($scope,$timeout) {
         // var temp = document.getElementById('bubbles')
         // var bubbleSize = temp.getBoundingClientRect();
         // $scope.class = "bubble2"
+        $scope.buttonDisabled = true;
         obj.count++
         $('#'+ index).animateCss('bounce')
         if (obj.count >= 5){
-            $timeout(function(){$scope.pop(obj)},5000)
+            $timeout(function(){$scope.pop(obj)},10000)
         }
-        return ;
+        $timeout(function(){$scope.buttonDisabled = false},750);
+        return;
     }
     $scope.bumpDown = function(obj, index) {
-        $('#'+ index).animateCss('shake')
+        $scope.buttonDisabled = true;
         obj.count--
+        $('#'+ index).animateCss('shake')
+        $timeout(function(){$scope.buttonDisabled = false},750);
         return;
     }
     $scope.pop = function(obj, index) {
+        $scope.buttonDisabled = true;
         $('#'+ index).animateCss('fadeOut')
-        $timeout(function(){$scope.bubbles.splice($scope.bubbles.indexOf(obj), 1)},750)
+        $timeout(function(){$scope.bubbles.splice($scope.bubbles.indexOf(obj), 1); $scope.buttonDisabled=false},500)
         return;
     }
 
