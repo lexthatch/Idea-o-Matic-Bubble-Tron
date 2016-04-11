@@ -30,14 +30,14 @@
 
     <div class="container-fluid">
         <div ng-repeat="bub in bubbles | orderBy:'-count'">
-            <div class="text-center col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="text-center col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div id="{{$index}}" ng-class="{bubble1: bub.count <= 2, bubble2: bub.count === 3, bubble3: bub.count === 4, hex: bub.count >= 5}">
                     <span ng-if="bub.count <=4">
-                    <button id="thought-bubblePop" ng-click="pop(bub, $index)" ><i class="fa fa-sun-o"></i></button>
-                    <button id="thought-bubbleDown" ng-click="bumpDown(bub, $index)"><i class="fa fa-minus"></i></button>
-                    <button id="thought-bubbleUp" ng-click="bumpUp(bub, $index)"><i class="fa fa-plus"></i></button>
+                    <button id="thought-bubblePop" ng-disabled="buttonDisabled" ng-click="pop(bub, $index)" ><i class="fa fa-sun-o"></i></button>
+                    <button id="thought-bubbleDown" ng-disabled="buttonDisabled" ng-click="bumpDown(bub, $index)"><i class="fa fa-minus"></i></button>
+                    <button id="thought-bubbleUp" ng-disabled="buttonDisabled" ng-click="bumpUp(bub, $index)"><i class="fa fa-plus"></i></button>
                     </span>
-                     <!--#{{$index}}-->
+                     #{{$index}}
                     <br> {{bub.idea}}
                     <br> {{bub.count}} #{{bub.event}}
                 </div>
@@ -58,6 +58,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="app/components/app.js"></script>
     <script src="app/components/controllers/controller.js"></script>
+    <script src="app/chance.js"></script>
 
 
 </body>

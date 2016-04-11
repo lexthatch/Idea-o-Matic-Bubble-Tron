@@ -5,7 +5,6 @@ bubbles:last-of-type{
   transform-origin: center bottom;
 
 }
-
 .hex:before {
     content: " ";
     width: 0; height: 0;
