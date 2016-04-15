@@ -44,7 +44,7 @@ app.controller('appController', function($scope,$timeout) {
     $scope.newThoughtLength = 25;
     $scope.newThought = function() {
         if (($scope.newIdea.idea === null) || ($scope.newIdea.idea == "")) {
-            alert("Sorry, plese enter in a valid input")
+            alert("Sorry, please enter in a valid input")
         }
         else if ($scope.newIdea.idea.length > $scope.newThoughtLength) {
             alert("Sorry, too long. " + $scope.newThoughtLength + " characters or less, you used " + $scope.newIdea.idea.length + " characters")

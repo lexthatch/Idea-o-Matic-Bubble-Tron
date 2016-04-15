@@ -15,15 +15,6 @@
 }
 
 
-
-.ball {
-  display: inline-block;
-  width: 75%;
-  height: 75%;
-  border-radius: 50%;
-  position: relative;
-  background: radial-gradient(circle at bottom, #81e8f6, #76deef 10%, #055194 80%, #062745 100%); }
-
 .ball {
   display: inline-block;
   width: 45%;
