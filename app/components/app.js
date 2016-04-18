@@ -1,5 +1,5 @@
 /*global angular */
-var app = angular.module("app", ["ngRoute", "ngAnimate"]);
+var app = angular.module("app", ["ngRoute", "ngAnimate", "firebase"]);
 
 app.config(function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);

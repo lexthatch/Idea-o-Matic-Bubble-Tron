@@ -6,7 +6,7 @@
                         Characers Remaning: {{newThoughtLength-newIdea.idea.length}}
                         <input type="text" ng-model="newIdea.idea" class="form-control" placeholder="Five Words for an Idea">
                         <br>
-                        <!--<input type="text" class="event" ng-model="newIdea.event" class="form-control" placeholder="Event or Location">-->
+                        <input type="text" class="event" ng-model="newIdea.location" class="form-control" placeholder="Event or Location">
                         <input type="submit" value="Blow"></input>
                     </div>
                 </form>
@@ -25,7 +25,7 @@
                     </span>
                      #{{$index}}
                     <br> {{bub.idea}}
-                    <br> {{bub.count}} #{{bub.event}}
+                    <br> {{bub.count}} #{{bub.location}}
                 </div>
             </div>
         </div>
