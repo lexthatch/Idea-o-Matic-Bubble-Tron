@@ -1,0 +1,36 @@
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <form ng-submit="newThought()" class="form">
+                    <div class="form-group form-inline text-center">
+                        Characers Remaning: {{newThoughtLength-newIdea.idea.length}}
+                        <input type="text" ng-model="newIdea.idea" class="form-control" placeholder="Five Words for an Idea">
+                        <br>
+                        <input type="text" class="event" ng-model="newIdea.location" class="form-control" placeholder="Event or Location">
+                        <input type="submit" value="Blow"></input>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div ng-repeat="bub in bubbles | orderBy:'-count'">
+            <div class="text-center col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div id="{{$index}}" ng-class="{bubble1: bub.count <= 2, bubble2: bub.count === 3, bubble3: bub.count === 4, hex: bub.count >= 5}">
+                    <span ng-if="bub.count <=4">
+                    <button id="thought-bubblePop" ng-disabled="buttonDisabled" ng-click="pop(bub, $index)" ><i class="fa fa-sun-o"></i></button>
+                    <button id="thought-bubbleDown" ng-disabled="buttonDisabled" ng-click="bumpDown(bub, $index)"><i class="fa fa-minus"></i></button>
+                    <button id="thought-bubbleUp" ng-disabled="buttonDisabled" ng-click="bumpUp(bub, $index)"><i class="fa fa-plus"></i></button>
+                    </span>
+                     #{{$index}}
+                    <br> {{bub.idea}}
+                    <br> {{bub.count}} #{{bub.location}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <a href="/view1">View 1</a> <a href="/view2">View 2</a> <a href="/view3">View 3</a> <a href="/view4">View 4</a>
+    
