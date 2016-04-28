@@ -1,32 +1,37 @@
-app.controller('appController', function($scope, $timeout, $location, Bubbles) {
+app.controller('appController', function($scope, $timeout, $location, $firebaseObject, Bubbles) {
 
-    $scope.bubbles = Bubbles
+    // var myFireBaseRef = new Firebase("https://bubblesbcw.firebaseio.com/");
     
-  
-    // $scope.generateBubbles = function() {
-    //     for (var i = 0; i < 10; i++) {
-    //         $scope.bubbles.$add({
-    //             idea: chance.name({
-    //                 middle: true,
-    //                 prefix: true
-    //             }),
-    //             location: chance.domain(),
-    //             // count: 2
-    //             count: chance.integer({
-    //                 min: 0,
-    //                 max: 4
-    //             })
-    //         })
-    //     }
-    // }();
+    $scope.bubbles = Bubbles;
+    
+   
+    //Generate bubbles for testing purposes.  
+    //Only occurs if there is no bubbles left.
+    $scope.bubbles.$loaded(function(){
+        if($scope.bubbles.length === 0){        
+            for (var i = 0; i < 10; i++) {
+             $scope.bubbles.$add({
+                idea: chance.name({
+                    middle: true,
+                    prefix: true
+                }),
+                location: chance.domain(),
+                // count: 2
+                count: chance.integer({
+                    min: 0,
+                    max: 4
+                    })
+                })
+            };
+        }
+    })
+    
 
     $scope.bumpUp = function(obj, index) {
         $scope.buttonDisabled = true;
-        // debugger
-            
-        obj.count++
-            $('#' + index).animateCss('bounce')
-        $scope.bubbles.$save().then(function(){
+        
+        obj.count++;
+        $('#' + index).animateCss('bounce')
         if (obj.count >= 5) {
             $scope.commonWall(obj)
             $timeout(function() {
@@ -36,7 +41,6 @@ app.controller('appController', function($scope, $timeout, $location, Bubbles) {
         $timeout(function() {
             $scope.buttonDisabled = false
         }, 750);
-        })
     }
     $scope.bumpDown = function(obj, index) {
         $scope.buttonDisabled = true;
