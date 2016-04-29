@@ -6,8 +6,8 @@
     <title>IOMBT</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <!--<link rel="stylesheet" href="assets/styles/animate.css">
-    <link rel="stylesheet" href="assets/styles/style.css">-->
+    <link rel="stylesheet" href="assets/styles/animate.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
     <link rel="stylesheet" href="assets/styles/newStyles.css">
 </head>
 
@@ -33,7 +33,7 @@
         <div ng-repeat="bub in bubbles | orderBy:'-count'">
             <div class="stage text-center col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <!--Technically there should be a  { on line 36 right after class =   If you correct this the bubbles do not show -->
-                <div id="{{$index}}" class="ball bubble: bub.count <= 2, ball2 bubble2: bub.count === 3, ball3 bubble 3: bub.count === 4, hex: bub.count >= 5}">
+                <div id="{{$index}}" ng-class="{'ball bubble': bub.count <= 2, 'ball2 bubble': bub.count === 3, 'ball3 bubble': bub.count === 4, 'hex': bub.count >= 5}">
                     <span ng-if="bub.count <=4">
                     <button id="thought-bubblePop" ng-disabled="buttonDisabled" ng-click="pop(bub, $index)" ><i class="fa fa-sun-o"></i></button>
                     <button id="thought-bubbleDown" ng-disabled="buttonDisabled" ng-click="bumpDown(bub, $index)"><i class="fa fa-minus"></i></button>
@@ -45,12 +45,6 @@
             </div>
         </div>
     </div>
-
-    <!--Examples of some ways of doing stuff-->
-    <!--<div ng-repeat="bub in bubbles track by $index" ng-class="{'animated bounce':$last}">
-            <!--<div class="animated bounce">-->
-    <!--<div class="text-center col-xs-6 col-sm-4 col-md-3 col-lg-2">-->
-    <!--<div id="{{$index}}" ng-class="class">-->
 
 
 

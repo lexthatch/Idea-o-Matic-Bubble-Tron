@@ -2,13 +2,13 @@ app.controller('appController', function($scope,$timeout) {
     $scope.bubbles = []
 
     $scope.generateBubbles = function(){
-        for (var i = 0; i < 10; i++){
+        for (var i = 0; i < 3; i++){
         $scope.bubbles.push(
             {
             idea: chance.name({middle: true, prefix: true}),
             event: chance.domain(),
-            // count: 2
-            count: chance.integer({min: 0, max: 4})
+            count: 2
+            // count: chance.integer({min: 0, max: 4})
             })
         }
     }();
@@ -62,11 +62,11 @@ app.controller('appController', function($scope,$timeout) {
         }
     }
 
-    $.fn.extend({
+    $.fn.extend({ok, 
         animateCss: function(animationName) {
             var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-            $(this).addClass('animated ' + animationName).one(animationEnd, function() {
-                $(this).removeClass('animated ' + animationName);
+            $(this).addClass('animated ' + animationName).css('animation' , 'none').one(animationEnd, function() {
+                $(this).removeClass('animated ' + animationName).css('animation');
             });
         }
     });
