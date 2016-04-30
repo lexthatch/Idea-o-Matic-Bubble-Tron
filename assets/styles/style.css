@@ -52,23 +52,3 @@
     top: -16px;
     margin-left: -6%;
 }
-.bubble2 #thought-bubbleUp{
-    position: absolute;
-    margin-left: 45%;
-    bottom: 35px;
-}
-.bubble2 #thought-bubbleDown{
-    position: absolute;
-    margin-left: -57%;
-    bottom: 35px;
-}
-.bubble3 #thought-bubbleUp{
-    position: absolute;
-    margin-left: 46%;
-    bottom: 54px;
-}
-.bubble3 #thought-bubbleDown{
-    position: absolute;
-    margin-left: -56%;
-    bottom: 54px;
-}

@@ -9,7 +9,7 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseO
     //Only occurs if there is no bubbles left.
     $scope.bubbles.$loaded(function(){
         if($scope.bubbles.length === 0){        
-            for (var i = 0; i < 10; i++) {
+            for (var i = 0; i < 3; i++) {
              $scope.bubbles.$add({
                 idea: chance.name({
                     middle: true,
