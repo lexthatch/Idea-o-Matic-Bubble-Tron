@@ -39,16 +39,46 @@
 }
 #thought-bubbleUp{
     position: absolute;
-    margin-left: 44%;
-    bottom: 24px;
+    margin-left: 47%;
+    bottom: 5em;
 }
 #thought-bubbleDown{
     position: absolute;
-    margin-left: -58%;
-    bottom: 24px;
+    margin-left: -51%;
+    bottom: 5em;
 }
 #thought-bubblePop{
     position: absolute;
-    top: -16px;
-    margin-left: -6%;
+    top: -1em;
+    margin-left: -4%;
+}
+.ball2 #thought-bubbleUp{
+    position: absolute;
+    margin-left: 47%;
+    bottom: 7em;
+}
+.ball2 #thought-bubbleDown{
+    position: absolute;
+    margin-left: -52%;
+    bottom: 7em;
+}
+.ball2 #thought-bubblePop{
+    position: absolute;
+    top: -1em;
+    margin-left: -3%;
+}
+.ball3 #thought-bubbleUp{
+    position: absolute;
+    margin-left: 47%;
+    bottom: 8em;
+}
+.ball3 #thought-bubbleDown{
+    position: absolute;
+    margin-left: -52%;
+    bottom: 8em;
+}
+.ball3 #thought-bubblePop{
+    position: absolute;
+    top: -1em;
+    margin-left: -3%;
 }

@@ -1,10 +1,11 @@
 .ball {
   display: inline-block;
-  width: 45%;
-  height: 45%;
+  width: 10em;
+  height: 12em;
   border-radius: 50%;
   position: relative;
-  background: radial-gradient(circle at bottom, #81e8f6, #76deef 10%, #055194 80%, #062745 100%); }
+  background: radial-gradient(circle at bottom, #81e8f6, #76deef 10%, #055194 80%, #062745 100%); 
+  padding-top: 2em;}
   .ball:before {
     content: "";
     position: absolute;
@@ -62,11 +63,12 @@
       
       .ball2 {
   display: inline-block;
-  width: 65%;
-  height: 65%;
+  width: 13em;
+  height: 15em;
   border-radius: 50%;
   position: relative;
-  background: radial-gradient(circle at bottom, #81e8f6, #76deef 10%, #055194 80%, #062745 100%); }
+  background: radial-gradient(circle at bottom, #81e8f6, #76deef 10%, #055194 80%, #062745 100%); 
+  padding-top: 4em;}
   .ball2:before {
     content: "";
     position: absolute;
@@ -125,11 +127,12 @@
       
       .ball3 {
   display: inline-block;
-  width: 85%;
-  height: 85%;
+  width: 16em;
+  height: 18em;
   border-radius: 50%;
   position: relative;
-  background: radial-gradient(circle at bottom, #81e8f6, #76deef 10%, #055194 80%, #062745 100%); }
+  background: radial-gradient(circle at bottom, #81e8f6, #76deef 10%, #055194 80%, #062745 100%); 
+  padding-top: 6em;}
   .ball3:before {
     content: "";
     position: absolute;
