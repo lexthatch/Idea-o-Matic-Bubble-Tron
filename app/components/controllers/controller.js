@@ -106,11 +106,10 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseO
         }
     }
 
-    $.fn.extend({
-        animateCss: function(animationName) {
+    $.fn.extend({animateCss: function(animationName) {
             var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-            $(this).addClass('animated ' + animationName).one(animationEnd, function() {
-                $(this).removeClass('animated ' + animationName);
+            $(this).removeClass('animation').addClass('animated ' + animationName).one(animationEnd, function() {
+                $(this).removeAttr( 'style' ).removeClass('animated ' + animationName).addClass('animation');
             });
         }
     });
