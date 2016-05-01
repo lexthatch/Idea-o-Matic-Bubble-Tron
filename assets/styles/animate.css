@@ -7,11 +7,11 @@
  *
  * Copyright (c) 2016 Daniel Eden
  */
-#bubble{
+/*#bubble{
     animation-duration: 0.75s;
     animation-delay: 0s;
     animation-iteration-count: 1;
-}
+}*/
 
 .animated {
   -webkit-animation-duration: 0.75s;
