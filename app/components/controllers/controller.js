@@ -62,7 +62,7 @@ app.controller('appController', function($scope,$timeout) {
         }
     }
 
-    $.fn.extend({ok, 
+    $.fn.extend({ 
         animateCss: function(animationName) {
             var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
             $(this).addClass('animated ' + animationName).css('animation' , 'none').one(animationEnd, function() {
