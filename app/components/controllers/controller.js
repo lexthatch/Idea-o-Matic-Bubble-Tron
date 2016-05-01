@@ -9,7 +9,7 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseO
     //Only occurs if there is no bubbles left.
     $scope.bubbles.$loaded(function(){
         if($scope.bubbles.length === 0){        
-            for (var i = 0; i < 10; i++) {
+            for (var i = 0; i < 3; i++) {
              $scope.bubbles.$add({
                 idea: chance.name({
                     middle: true,
@@ -106,11 +106,10 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseO
         }
     }
 
-    $.fn.extend({
-        animateCss: function(animationName) {
+    $.fn.extend({animateCss: function(animationName) {
             var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-            $(this).addClass('animated ' + animationName).one(animationEnd, function() {
-                $(this).removeClass('animated ' + animationName);
+            $(this).removeClass('animation').addClass('animated ' + animationName).one(animationEnd, function() {
+                $(this).removeClass('animated ' + animationName).addClass('animation');
             });
         }
     });
