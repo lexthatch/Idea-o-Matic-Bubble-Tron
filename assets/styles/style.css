@@ -39,12 +39,12 @@
 }
 #thought-bubbleUp{
     position: absolute;
-    margin-left: 47%;
+    margin-left: 5.5em;
     bottom: 5em;
 }
 #thought-bubbleDown{
     position: absolute;
-    margin-left: -51%;
+    margin-left: -6em;
     bottom: 5em;
 }
 #thought-bubblePop{
@@ -54,12 +54,12 @@
 }
 .ball2 #thought-bubbleUp{
     position: absolute;
-    margin-left: 47%;
+    margin-left: 7em;
     bottom: 7em;
 }
 .ball2 #thought-bubbleDown{
     position: absolute;
-    margin-left: -52%;
+    margin-left: -7.5em;
     bottom: 7em;
 }
 .ball2 #thought-bubblePop{
@@ -69,12 +69,12 @@
 }
 .ball3 #thought-bubbleUp{
     position: absolute;
-    margin-left: 47%;
+    margin-left: 8.5em;
     bottom: 8em;
 }
 .ball3 #thought-bubbleDown{
     position: absolute;
-    margin-left: -52%;
+    margin-left: -9em;
     bottom: 8em;
 }
 .ball3 #thought-bubblePop{
