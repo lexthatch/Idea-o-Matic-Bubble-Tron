@@ -74,7 +74,7 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseO
                 imageUrl: "http://previews.123rf.com/images/Krisdog/Krisdog1210/krisdog121000021/15611120-Illustration-of-a-hand-giving-a-thumbs-up-in-a-woodblock-style-Stock-Vector.jpg"},
             function(isConfirm) {
                 if (isConfirm) {
-                    $location.path("/view1")
+                    $location.path("/view2")
                 } else {
                     swal({
                         title: "Sorry",
