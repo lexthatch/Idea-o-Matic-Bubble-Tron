@@ -1,4 +1,4 @@
-app.controller('appController', function($scope, $timeout, $location, $firebaseObject, Bubbles) {
+app.controller('appController', function($scope, $timeout, $location, $firebaseArray, Bubbles) {
 
     // var myFireBaseRef = new Firebase("https://bubblesbcw.firebaseio.com/");
     
@@ -29,10 +29,18 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseO
 
     $scope.bumpUp = function(obj, index) {
         $scope.buttonDisabled = true;
+        var temp = Bubbles.$getRecord(obj)
+        temp.transaction(function(temp){
+            return (temp.count || 0) + 1
+        })
+        // Bubbles.$save(temp.count++).then(function(Bubbles){
+        //     temp.key() === Bubbles[temp].$id
+        // })
         
-        obj.count++;
+        // obj.count++ (uncomment this to make it local only change)
+                        
         $('#' + index).animateCss('bounce')
-        if (obj.count >= 5) {
+        if (temp.count >= 5) {
             $scope.commonWall(obj)
             $timeout(function() {
                 $scope.pop(obj)
@@ -44,8 +52,11 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseO
     }
     $scope.bumpDown = function(obj, index) {
         $scope.buttonDisabled = true;
-        obj.count--
-            $('#' + index).animateCss('shake')
+        var temp = Bubbles.$getRecord(obj)
+        Bubbles.$save(temp.count--)
+        
+        // obj.count-- (uncomment this to make it local only change)
+        $('#' + index).animateCss('shake')
         $timeout(function() {
             $scope.buttonDisabled = false
         }, 750);
@@ -54,8 +65,13 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseO
     $scope.pop = function(obj, index) {
         $scope.buttonDisabled = true;
         $('#' + index).animateCss('fadeOut')
+        var temp = Bubbles.$getRecord(obj)
+        //^^^^^^ remove if want to remove only locally
         $timeout(function() {
-            $scope.bubbles.splice($scope.bubbles.indexOf(obj), 1);
+            // $scope.bubbles.splice($scope.bubbles.indexOf(obj), 1);
+            //Uncomment if want to remove only locally ^^^^^^
+            Bubbles.$remove(temp);
+            //^^^^ remove if want to remove only locally 
             $scope.buttonDisabled = false
         }, 500)
         return;
