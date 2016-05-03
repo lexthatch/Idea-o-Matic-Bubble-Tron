@@ -111,9 +111,9 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseA
             $scope.newIdea = "";
         } else {
 
-            $scope.bubbles.$add({
+            Bubbles.$add({
                 idea: $scope.newIdea.idea,
-                location: $scope.newIdea.location,
+                location: $scope.newIdea.location || null,
                 count: 0
             })
             $timeout(function() {
