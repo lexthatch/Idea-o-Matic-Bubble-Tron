@@ -29,12 +29,11 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseA
 
     $scope.bumpUp = function(obj, index) {
         $scope.buttonDisabled = true;
+        
+        //Update Firebase count value        
         var temp = Bubbles.$getRecord(obj)
         temp.count++
         Bubbles.$save(temp)
-        // Bubbles.$save(temp.count++).then(function(Bubbles){
-        //     temp.key() === Bubbles[temp].$id
-        // })
         
         // obj.count++ (uncomment this to make it local only change)
                         
@@ -51,7 +50,8 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseA
     }
     $scope.bumpDown = function(obj, index) {
         $scope.buttonDisabled = true;
-        //Sometimes will update Firebase
+        
+        //Update Firebase count value
         var temp = Bubbles.$getRecord(obj)
         temp.count--
         Bubbles.$save(temp)
