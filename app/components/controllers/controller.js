@@ -30,9 +30,8 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseA
     $scope.bumpUp = function(obj, index) {
         $scope.buttonDisabled = true;
         var temp = Bubbles.$getRecord(obj)
-        temp.transaction(function(temp){
-            return (temp.count || 0) + 1
-        })
+        temp.count++
+        Bubbles.$save(temp)
         // Bubbles.$save(temp.count++).then(function(Bubbles){
         //     temp.key() === Bubbles[temp].$id
         // })
@@ -52,8 +51,10 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseA
     }
     $scope.bumpDown = function(obj, index) {
         $scope.buttonDisabled = true;
+        //Sometimes will update Firebase
         var temp = Bubbles.$getRecord(obj)
-        Bubbles.$save(temp.count--)
+        temp.count--
+        Bubbles.$save(temp)
         
         // obj.count-- (uncomment this to make it local only change)
         $('#' + index).animateCss('shake')
@@ -115,6 +116,7 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseA
                 idea: $scope.newIdea.idea,
                 location: $scope.newIdea.location || null,
                 count: 0
+                // timestamp: Firebase.ServerValue.TIMESTAMP
             })
             $timeout(function() {
                 $('#' + $scope.newIdea.idea).animateCss('bounce')
