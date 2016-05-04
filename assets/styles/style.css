@@ -43,46 +43,64 @@
 }
 #thought-bubbleUp{
     position: absolute;
-    margin-left: 5.5em;
+    margin-left: 4.5em;
     bottom: 5em;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
 }
 #thought-bubbleDown{
     position: absolute;
-    margin-left: -6em;
+    margin-left: -4.5em;
     bottom: 5em;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline:none;
 }
 #thought-bubblePop{
     position: absolute;
-    top: -1em;
+    top: 0em;
     margin-left: -4%;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
 }
 .ball2 #thought-bubbleUp{
     position: absolute;
-    margin-left: 7em;
+    margin-left: 6em;
     bottom: 7em;
 }
 .ball2 #thought-bubbleDown{
     position: absolute;
-    margin-left: -7.5em;
+    margin-left: -6em;
     bottom: 7em;
 }
 .ball2 #thought-bubblePop{
     position: absolute;
-    top: -1em;
+    top: 0em;
     margin-left: -3%;
 }
 .ball3 #thought-bubbleUp{
     position: absolute;
-    margin-left: 8.5em;
+    margin-left: 7em;
     bottom: 8em;
 }
 .ball3 #thought-bubbleDown{
     position: absolute;
-    margin-left: -9em;
+    margin-left: -7.5em;
     bottom: 8em;
 }
 .ball3 #thought-bubblePop{
     position: absolute;
-    top: -1em;
+    top: 0em;
     margin-left: -3%;
 }

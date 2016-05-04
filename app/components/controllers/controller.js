@@ -66,6 +66,7 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseA
     $scope.pop = function(obj, index) {
         $scope.buttonDisabled = true;
         $('#' + index).animateCss('fadeOut')
+        
         var temp = Bubbles.$getRecord(obj)
         //^^^^^^ remove if want to remove only locally
         $timeout(function() {
