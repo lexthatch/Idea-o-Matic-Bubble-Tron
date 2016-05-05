@@ -39,7 +39,7 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseA
                         
         $('#' + index).animateCss('bounce')
         if (temp.count >= 5) {
-            $scope.commonWall(obj)
+            Bubbles.$watch($scope.commonWall(obj))
             $timeout(function() {
                 $scope.pop(obj)
             }, 2000);
@@ -78,6 +78,7 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseA
         }, 500)
         return;
     }
+    
     $scope.commonWall = function(thought) {
         swal({
                 title: "Common Wall?",
