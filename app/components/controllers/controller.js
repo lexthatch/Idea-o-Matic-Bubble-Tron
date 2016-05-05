@@ -1,4 +1,4 @@
-app.controller('appController', function($scope, $timeout, $location, $firebaseObject, Bubbles) {
+app.controller('appController', function($scope, $timeout, $location, $firebaseArray, Bubbles) {
 
     // var myFireBaseRef = new Firebase("https://bubblesbcw.firebaseio.com/");
     
@@ -30,10 +30,16 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseO
     $scope.bumpUp = function(obj, index) {
         $scope.buttonDisabled = true;
         
-        obj.count++;
+        //Update Firebase count value        
+        var temp = Bubbles.$getRecord(obj)
+        temp.count++
+        Bubbles.$save(temp)
+        
+        // obj.count++ (uncomment this to make it local only change)
+                        
         $('#' + index).animateCss('bounce')
-        if (obj.count >= 5) {
-            $scope.commonWall(obj)
+        if (temp.count >= 5) {
+            Bubbles.$watch($scope.commonWall(obj))
             $timeout(function() {
                 $scope.pop(obj)
             }, 2000);
@@ -44,8 +50,14 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseO
     }
     $scope.bumpDown = function(obj, index) {
         $scope.buttonDisabled = true;
-        obj.count--
-            $('#' + index).animateCss('shake')
+        
+        //Update Firebase count value
+        var temp = Bubbles.$getRecord(obj)
+        temp.count--
+        Bubbles.$save(temp)
+        
+        // obj.count-- (uncomment this to make it local only change)
+        $('#' + index).animateCss('shake')
         $timeout(function() {
             $scope.buttonDisabled = false
         }, 750);
@@ -54,12 +66,19 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseO
     $scope.pop = function(obj, index) {
         $scope.buttonDisabled = true;
         $('#' + index).animateCss('fadeOut')
+        
+        var temp = Bubbles.$getRecord(obj)
+        //^^^^^^ remove if want to remove only locally
         $timeout(function() {
-            $scope.bubbles.splice($scope.bubbles.indexOf(obj), 1);
+            // $scope.bubbles.splice($scope.bubbles.indexOf(obj), 1);
+            //Uncomment if want to remove only locally ^^^^^^
+            Bubbles.$remove(temp);
+            //^^^^ remove if want to remove only locally 
             $scope.buttonDisabled = false
         }, 500)
         return;
     }
+    
     $scope.commonWall = function(thought) {
         swal({
                 title: "Common Wall?",
@@ -95,10 +114,11 @@ app.controller('appController', function($scope, $timeout, $location, $firebaseO
             $scope.newIdea = "";
         } else {
 
-            $scope.bubbles.$add({
+            Bubbles.$add({
                 idea: $scope.newIdea.idea,
-                location: $scope.newIdea.location,
+                location: $scope.newIdea.location || null,
                 count: 0
+                // timestamp: Firebase.ServerValue.TIMESTAMP
             })
             $timeout(function() {
                 $('#' + $scope.newIdea.idea).animateCss('bounce')
