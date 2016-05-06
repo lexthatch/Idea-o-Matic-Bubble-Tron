@@ -1,7 +1,7 @@
 <div id='firechat-wrapper'>
     Login with <a href='#' onclick='login("google");'><i class="fa fa-google-plus" aria-hidden="true"></i></a>, <a href='#' onclick='login("facebook");'><i class="fa fa-facebook-official" aria-hidden="true"></i></a>, <a href='#' onclick='login("github");'><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
-<script type='text/javascript'>
+<script>
     // Create a new Firebase reference, and a new instance of the Login client
       var chatRef = new Firebase("https://bubblesbcw.firebaseio.com/chat");
       chatRef.onAuth(function(authData) {

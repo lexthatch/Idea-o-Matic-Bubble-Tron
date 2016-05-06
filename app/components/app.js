@@ -1,7 +1,7 @@
 /*global angular */
 var app = angular.module("app", ["ngRoute", "ngAnimate", "firebase"]);
 
-app.config(function($routeProvider, $locationProvider) {
+app.config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
     $routeProvider
@@ -25,9 +25,13 @@ app.config(function($routeProvider, $locationProvider) {
             controller: "appController",
             templateUrl: "/app/components/routes/view4.html"
         })
-        .when("/commanwallchat", {
+        .when("/commonwallchat", {
             controller: "appController",
-            templateUrl: "app/components/routes/commanwallchat.html"
+            templateUrl: "app/components/routes/commonwallchat.html"
+        })
+        .when("/easychat", {
+            controller: "appController",
+            templateUrl: "app/components/routes/easychat.html"
         })
         //   .when("/view5", {
         //     controller: "appController",
