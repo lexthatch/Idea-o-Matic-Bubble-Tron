@@ -33,9 +33,5 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: "appController",
             templateUrl: "app/components/routes/easychat.html"
         })
-        //   .when("/view5", {
-        //     controller: "appController",
-        //     templateUrl: "/app/components/routes/view2.html/view5.html"
-        //   })
         .otherwise({ redirectTo: "/" });
 });
